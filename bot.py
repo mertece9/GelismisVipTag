@@ -48,6 +48,7 @@ sahib = os.environ.get("sahib")
 support = os.environ.get("support")
 sahib = os.environ.get("sahib")
 ozel_list = int(os.environ.get("ozel_list"))
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
