@@ -35,6 +35,9 @@ LOGGER = logging.getLogger(__name__)
 #OWNER_ID = int(os.environ.get("OWNER_ID")) # Sahip hesabın id'si
 #LANGAUGE = os.environ.get("LANGAUGE", "TR")
 
+api_id = int(os.environ.get("APP_ID"))
+api_hash = os.environ.get("API_HASH")
+bot_token = os.environ.get("TOKEN")
 
 USERNAME = os.environ.get("USERNAME")
 group = int(os.environ.get("group"))
