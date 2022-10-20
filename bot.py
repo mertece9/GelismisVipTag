@@ -40,7 +40,6 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
-     await client.send_message(group, f"ℹ️ **Yeni Kullanıcı -** {ad}")
      await event.reply(f"**Merhaba {ad}** 👋\n\n{startmesaj}",
                     buttons=(
                       [
