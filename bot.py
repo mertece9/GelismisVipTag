@@ -866,7 +866,7 @@ class Database:
         return self.col.find({"ban_status.is_banned": True})
 
 
-db = Database(DATABASE_URL, BOT_USERNAME)
+db = Database(DATABASE_URL, USERNAME)
 mongo_db_veritabani = MongoClient(DATABASE_URL)
 dcmdb = mongo_db_veritabani.handlers
 
@@ -1019,7 +1019,7 @@ async def botstats(bot: Client, message: Message):
     ram_usage = psutil.virtual_memory().percent
     disk_usage = psutil.disk_usage("/").percent
     total_users = await db.total_users_count()
-    await g4rip.edit(text=LAN.STATS.format(BOT_USERNAME, total_users, groups, pms, total, used, disk_usage, free, cpu_usage, ram_usage, __version__), parse_mode="md")
+    await g4rip.edit(text=LAN.STATS.format(USERNAME, total_users, groups, pms, total, used, disk_usage, free, cpu_usage, ram_usage, __version__), parse_mode="md")
 
 
 
@@ -1044,7 +1044,7 @@ async def ban(c: Client, m: Message):
         user_id = m.reply_to_message.from_user.id
         if len(m.command) <= 1:
             ban_duration = 9999
-            ban_reason = LAN.BAN_REASON.format(BOT_USERNAME)
+            ban_reason = LAN.BAN_REASON.format(USERNAME)
         elif len(m.command) == 2:
             ban_duration = 9999
             ban_reason = " ".join(m.command[1:])
@@ -1054,7 +1054,7 @@ async def ban(c: Client, m: Message):
         elif len(m.command) == 2:
             user_id = int(m.command[1])
             ban_duration = 9999
-            ban_reason = LAN.BAN_REASON.format(BOT_USERNAME)
+            ban_reason = LAN.BAN_REASON.format(USERNAME)
         elif len(m.command) == 3:
             user_id = int(m.command[1])
             ban_duration = 9999
