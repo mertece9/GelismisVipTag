@@ -804,12 +804,6 @@ async def event(ups):
 
 
 
-db = Database(DATABASE_URL, USERNAME)
-mongo_db_veritabani = MongoClient(DATABASE_URL)
-dcmdb = mongo_db_veritabani.handlers
-
-
-
 ################## KULLANICI KONTROLLERİ #############
 async def handle_user_status(bot: Client, cmd: Message): # Kullanıcı kontrolü
     chat_id = cmd.chat.id
