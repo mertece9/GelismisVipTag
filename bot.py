@@ -907,26 +907,6 @@ async def main_broadcast_handler(m, db): # Ana Broadcast Mantığı
     os.remove("broadcast-logs-mina.txt")
 
 
-delcmdmdb = dcmdb.admins
-
-async def delcmd_is_on(chat_id: int) -> bool: # Grup için mesaj silme özeliğinin açık olup olmadığını kontrol eder.
-    chat = await delcmdmdb.find_one({"chat_id": chat_id})
-    return not chat
-
-
-async def delcmd_on(chat_id: int): # Grup için mesaj silme özeliğini açar.
-    already_del = await delcmd_is_on(chat_id)
-    if already_del:
-        return
-    return await delcmdmdb.delete_one({"chat_id": chat_id})
-
-
-async def delcmd_off(chat_id: int): # Grup için mesaj silme özeliğini kapatır.
-    already_del = await delcmd_is_on(chat_id)
-    if not already_del:
-        return
-    return await delcmdmdb.insert_one({"chat_id": chat_id})
-
 
 
 ################# SAHİP KOMUTLARI #############
