@@ -1,15 +1,49 @@
-import heroku3
-import random, os, logging, asyncio
+import os, logging, asyncio
 from telethon import Button
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
-from telethon.events import StopPropagation
-from config import client, USERNAME, startmesaj, qrupstart, komutlar, sahib, support, group
 
+from datetime import datetime
+
+from pyrogram import filters
+from pyrogram.errors import PeerIdInvalid
+from pyrogram.types import Message, User
 from pyrogram.types.messages_and_media import Message
 from pyrogram import Client, filters
 import time
+
+import datetime
+import motor.motor_asyncio
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
+import asyncio
+import datetime
+import shutil, psutil, traceback, os
+import random
+import string
+import time
+import traceback
+import aiofiles
+from pyrogram import Client, filters, __version__
+from pyrogram.types import Message
+from pyrogram.errors import (
+    FloodWait,
+    InputUserDeactivated,
+    PeerIdInvalid,
+    UserIsBlocked,
+)
+#
+#import heroku3
+#import random, os, logging, asyncio
+#from telethon import Button
+#from telethon import TelegramClient, events
+#from telethon.sessions import StringSession
+#from telethon.tl.types import ChannelParticipantsAdmins
+#from telethon.events import StopPropagation
+
+#from pyrogram.types.messages_and_media import Message
+#from pyrogram import Client, filters
+#import time
 
 
 logging.basicConfig(
@@ -17,7 +51,33 @@ logging.basicConfig(
     format='%(name)s - [%(levelname)s] - %(message)s'
 )
 LOGGER = logging.getLogger(__name__)
+# Burayı gurcalama
+# 
+# 
+api_id = int(os.environ.get("APP_ID"))
+api_hash = os.environ.get("API_HASH")
+bot_token = os.environ.get("TOKEN")
 
+
+#
+USERNAME = os.environ.get("USERNAME")
+group = int(os.environ.get("group"))
+startmesaj = os.environ.get("startmesaj")
+komutlar = os.environ.get("komutlar")
+qrupstart = os.environ.get("qrupstart")
+sahib = os.environ.get("sahib")
+support = os.environ.get("support")
+sahib = os.environ.get("sahib")
+ozel_list = int(os.environ.get("ozel_list"))
+#
+# Telethon 
+client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
+
+app = Client("GUNC",
+             api_id=api_id,
+             api_hash=api_hash,
+             bot_token=bot_token
+             )
 anlik_calisan = []
 
 ozel_list = [641319713]
@@ -40,6 +100,7 @@ async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
+     await client.send_message(group, f"ℹ️ **Yeni Kullanıcı -** {ad}")
      await event.reply(f"**Merhaba {ad}** 👋\n\n{startmesaj}",
                     buttons=(
                       [
