@@ -6,7 +6,7 @@ from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
 from telethon.events import StopPropagation
 
-import motor.motor_asyncio
+
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 
 from pyrogram.types.messages_and_media import Message
