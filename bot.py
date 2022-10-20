@@ -14,8 +14,6 @@ from pyrogram import Client, filters
 import time
 
 import datetime
-import motor.motor_asyncio
-from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 import asyncio
 import datetime
 import shutil, psutil, traceback, os
