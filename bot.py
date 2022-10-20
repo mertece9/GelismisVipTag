@@ -1,49 +1,15 @@
-import os, logging, asyncio
+#
+import heroku3
+import random, os, logging, asyncio
 from telethon import Button
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 from telethon.tl.types import ChannelParticipantsAdmins
+from telethon.events import StopPropagation
 
-from datetime import datetime
-
-from pyrogram import filters
-from pyrogram.errors import PeerIdInvalid
-from pyrogram.types import Message, User
 from pyrogram.types.messages_and_media import Message
 from pyrogram import Client, filters
 import time
-
-import datetime
-import motor.motor_asyncio
-from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
-import asyncio
-import datetime
-import shutil, psutil, traceback, os
-import random
-import string
-import time
-import traceback
-import aiofiles
-from pyrogram import Client, filters, __version__
-from pyrogram.types import Message
-from pyrogram.errors import (
-    FloodWait,
-    InputUserDeactivated,
-    PeerIdInvalid,
-    UserIsBlocked,
-)
-#
-#import heroku3
-#import random, os, logging, asyncio
-#from telethon import Button
-#from telethon import TelegramClient, events
-#from telethon.sessions import StringSession
-#from telethon.tl.types import ChannelParticipantsAdmins
-#from telethon.events import StopPropagation
-
-#from pyrogram.types.messages_and_media import Message
-#from pyrogram import Client, filters
-#import time
 
 
 logging.basicConfig(
